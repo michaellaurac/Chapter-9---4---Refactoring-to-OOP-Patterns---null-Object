@@ -35,7 +35,6 @@ describe("tests run on the 'person.js' file:", () => {
     wish(tigerify(capitalize(personOne.name)) === "Tony, the tiger");
   });
   it("tigerifies capitalized personTwo's name to null", () => {
-    console.log(tigerify(capitalize(personTwo.name)));
     wish(tigerify(capitalize(personTwo.name)) === null);
   });
 });

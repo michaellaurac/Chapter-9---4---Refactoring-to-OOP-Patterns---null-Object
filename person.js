@@ -20,7 +20,11 @@ function capitalize (string) {
 }
 
 function tigerify (string) {
-  return `${string}, the tiger`;
+  if (string === null) {
+    return null;
+  } else {
+    return `${string}, the tiger`;
+  }
 }
 
 module.exports = { Person, AnonymousPerson, capitalize, tigerify };
