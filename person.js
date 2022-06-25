@@ -7,12 +7,16 @@ class Person {
 class AnonymousPerson extends Person {
   constructor () {
     super();
-    this.name = "";
+    this.name = null;
   }
 }
 
 function capitalize (string) {
-  return string[0].toUpperCase() + string.substring(1);
+  if (string === null) {
+    return null;
+  } else {
+    return string[0].toUpperCase() + string.substring(1);
+  }
 }
 
 module.exports = { Person, AnonymousPerson, capitalize };
