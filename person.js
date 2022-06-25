@@ -27,4 +27,12 @@ function tigerify (string) {
   }
 }
 
-module.exports = { Person, AnonymousPerson, capitalize, tigerify };
+function display (string) {
+  if (string === null) {
+    return "";
+  } else {
+    return string;
+  }
+}
+
+module.exports = { Person, AnonymousPerson, capitalize, tigerify, display };

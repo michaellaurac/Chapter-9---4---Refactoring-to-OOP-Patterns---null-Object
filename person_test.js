@@ -6,7 +6,7 @@ const fileName = () => {
 /* eslint-env mocha */
 
 const wish = require("wish");
-const { Person, AnonymousPerson, capitalize, tigerify } = require("./person.js");
+const { Person, AnonymousPerson, capitalize, tigerify, display } = require("./person.js");
 
 describe("tests run on the 'person.js' file:", () => {
   // setup test
@@ -36,5 +36,12 @@ describe("tests run on the 'person.js' file:", () => {
   });
   it("tigerifies capitalized personTwo's name to null", () => {
     wish(tigerify(capitalize(personTwo.name)) === null);
+  });
+  // display
+  it("displays the tigerified capitalized personOne's name to \"Tony, the tiger\"", () => {
+    wish(display(tigerify(capitalize(personOne.name))) === "Tony, the tiger");
+  });
+  it("displays the tigerified capitalized personTwo's name to \"\"", () => {
+    wish(display(tigerify(capitalize(personTwo.name))) === "");
   });
 });
