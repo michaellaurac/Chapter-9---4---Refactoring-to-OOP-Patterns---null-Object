@@ -19,4 +19,8 @@ function capitalize (string) {
   }
 }
 
-module.exports = { Person, AnonymousPerson, capitalize };
+function tigerify (string) {
+  return `${string}, the tiger`;
+}
+
+module.exports = { Person, AnonymousPerson, capitalize, tigerify };

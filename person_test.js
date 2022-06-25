@@ -6,7 +6,7 @@ const fileName = () => {
 /* eslint-env mocha */
 
 const wish = require("wish");
-const { Person, AnonymousPerson, capitalize } = require("./person.js");
+const { Person, AnonymousPerson, capitalize, tigerify } = require("./person.js");
 
 describe("tests run on the 'person.js' file:", () => {
   // setup test
@@ -16,16 +16,26 @@ describe("tests run on the 'person.js' file:", () => {
   // functional tests
   const personOne = new Person("tony");
   const personTwo = new AnonymousPerson("tony");
+  // constructors
   it("verifies personOne's name is tony", () => {
     wish(personOne.name === "tony");
-  });
-  it("capitalizes personOne's name to Tony", () => {
-    wish(capitalize(personOne.name) === "Tony");
   });
   it("verifies personTwo's name is null", () => {
     wish(personTwo.name === null);
   });
+  // capitalize
+  it("capitalizes personOne's name to Tony", () => {
+    wish(capitalize(personOne.name) === "Tony");
+  });
   it("capitalizes personTwo's name to null", () => {
     wish(capitalize(personTwo.name) === null);
+  });
+  // tigerify
+  it("tigerifies capitalized personOne's name to \"Tony, the tiger\"", () => {
+    wish(tigerify(capitalize(personOne.name)) === "Tony, the tiger");
+  });
+  it("tigerifies capitalized personTwo's name to null", () => {
+    console.log(tigerify(capitalize(personTwo.name)));
+    wish(tigerify(capitalize(personTwo.name)) === null);
   });
 });
