@@ -7,7 +7,7 @@ class Person {
 class AnonymousPerson extends Person {
   constructor () {
     super();
-    this.name = null;
+    this.name = "";
   }
 }
 

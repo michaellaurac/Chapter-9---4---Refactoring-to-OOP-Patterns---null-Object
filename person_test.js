@@ -22,10 +22,10 @@ describe("tests run on the 'person.js' file:", () => {
   it("capitalizes personOne's name to Tony", () => {
     wish(capitalize(personOne.name) === "Tony");
   });
-  it("verifies personTwo's name is null", () => {
-    wish(personTwo.name === null);
+  it("verifies personTwo's name is \"\"", () => {
+    wish(personTwo.name === "");
   });
-  it("capitalizes  personTwo's name to null", () => {
-    wish(capitalize(personTwo.name) === null);
+  it("capitalizes  personTwo's name to \"\"", () => {
+    wish(capitalize(personTwo.name) === "");
   });
 });
