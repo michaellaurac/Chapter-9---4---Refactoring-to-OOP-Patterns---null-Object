@@ -13,7 +13,15 @@ class AnonymousPerson extends Person {
 
 class NullString {
   capitalize () {
-    return null;
+    return this;
+  }
+
+  tigerify () {
+    return this;
+  }
+
+  display () {
+    return "";
   }
 }
 
@@ -45,5 +53,6 @@ class NameString extends String {
 
 module.exports = {
   Person,
-  AnonymousPerson
+  AnonymousPerson,
+  NullString
 };

@@ -8,7 +8,8 @@ const fileName = () => {
 const wish = require("wish");
 const {
   Person,
-  AnonymousPerson
+  AnonymousPerson,
+  NullString
 } = require("./person.js");
 
 describe("tests run on the 'person.js' file:", () => {
@@ -21,25 +22,24 @@ describe("tests run on the 'person.js' file:", () => {
   const personTwo = new AnonymousPerson("tony");
   // constructors
   it("verifies personOne's name is tony", () => {
-    console.log(personOne.name.toString());
     wish(personOne.name.toString() === "tony");
   });
-  it("verifies personTwo's name is null", () => {
-    wish(personTwo.name === null);
+  it("verifies personTwo's name is an instance of NullString", () => {
+    wish(personTwo.name instanceof NullString);
   });
   // capitalize
   it("capitalizes personOne's name to Tony", () => {
     wish(personOne.name.capitalize().toString() === "Tony");
   });
-  it("capitalizes personTwo's name to null", () => {
-    wish(personTwo.name.capitalize() === null);
+  it("capitalizes personTwo's name to an instance of NullString", () => {
+    wish(personTwo.name.capitalize() instanceof NullString);
   });
   // tigerify
   it("tigerifies capitalized personOne's name to \"Tony, the tiger\"", () => {
     wish(personOne.name.capitalize().tigerify().toString() === "Tony, the tiger");
   });
-  it("tigerifies capitalized personTwo's name to null", () => {
-    wish(personTwo.name.capitalize().tigerify() === null);
+  it("tigerifies capitalized personTwo's name to an instance of NullString", () => {
+    wish(personTwo.name.capitalize().tigerify() instanceof NullString);
   });
   // display
   it("displays the tigerified capitalized personOne's name to \"Tony, the tiger\"", () => {
