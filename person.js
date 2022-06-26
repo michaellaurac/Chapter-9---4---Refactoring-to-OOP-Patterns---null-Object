@@ -1,38 +1,49 @@
 class Person {
   constructor (name) {
-    this.name = name;
+    this.name = new NameString(name);
   }
 };
 
 class AnonymousPerson extends Person {
   constructor () {
     super();
-    this.name = null;
+    this.name = new NullString();
   }
 }
 
-function capitalize (string) {
-  if (string === null) {
+class NullString {
+  capitalize () {
     return null;
-  } else {
-    return string[0].toUpperCase() + string.substring(1);
   }
 }
 
-function tigerify (string) {
-  if (string === null) {
-    return null;
-  } else {
-    return `${string}, the tiger`;
+class NameString extends String {
+  capitalize () {
+    if (this === null) {
+      return null;
+    } else {
+      return new NameString(this[0].toUpperCase() + this.substring(1));
+    }
   }
-}
 
-function display (string) {
-  if (string === null) {
-    return "";
-  } else {
-    return string;
+  tigerify () {
+    if (this === null) {
+      return null;
+    } else {
+      return new NameString(`${this}, the tiger`);
+    }
   }
-}
 
-module.exports = { Person, AnonymousPerson, capitalize, tigerify, display };
+  display () {
+    if (this === null) {
+      return "";
+    } else {
+      return this.toString();
+    }
+  }
+};
+
+module.exports = {
+  Person,
+  AnonymousPerson
+};

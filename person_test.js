@@ -6,7 +6,10 @@ const fileName = () => {
 /* eslint-env mocha */
 
 const wish = require("wish");
-const { Person, AnonymousPerson, capitalize, tigerify, display } = require("./person.js");
+const {
+  Person,
+  AnonymousPerson
+} = require("./person.js");
 
 describe("tests run on the 'person.js' file:", () => {
   // setup test
@@ -18,30 +21,31 @@ describe("tests run on the 'person.js' file:", () => {
   const personTwo = new AnonymousPerson("tony");
   // constructors
   it("verifies personOne's name is tony", () => {
-    wish(personOne.name === "tony");
+    console.log(personOne.name.toString());
+    wish(personOne.name.toString() === "tony");
   });
   it("verifies personTwo's name is null", () => {
     wish(personTwo.name === null);
   });
   // capitalize
   it("capitalizes personOne's name to Tony", () => {
-    wish(capitalize(personOne.name) === "Tony");
+    wish(personOne.name.capitalize().toString() === "Tony");
   });
   it("capitalizes personTwo's name to null", () => {
-    wish(capitalize(personTwo.name) === null);
+    wish(personTwo.name.capitalize() === null);
   });
   // tigerify
   it("tigerifies capitalized personOne's name to \"Tony, the tiger\"", () => {
-    wish(tigerify(capitalize(personOne.name)) === "Tony, the tiger");
+    wish(personOne.name.capitalize().tigerify().toString() === "Tony, the tiger");
   });
   it("tigerifies capitalized personTwo's name to null", () => {
-    wish(tigerify(capitalize(personTwo.name)) === null);
+    wish(personTwo.name.capitalize().tigerify() === null);
   });
   // display
   it("displays the tigerified capitalized personOne's name to \"Tony, the tiger\"", () => {
-    wish(display(tigerify(capitalize(personOne.name))) === "Tony, the tiger");
+    wish(personOne.name.capitalize().tigerify().display() === "Tony, the tiger");
   });
   it("displays the tigerified capitalized personTwo's name to \"\"", () => {
-    wish(display(tigerify(capitalize(personTwo.name))) === "");
+    wish(personTwo.name.capitalize().tigerify().display() === "");
   });
 });
